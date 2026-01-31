@@ -153,8 +153,7 @@ export default function Home() {
             Where Does the<br />Money Go?
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-500 max-w-xl leading-relaxed">
-            A clear, data-driven look at SFUSD&apos;s $1.2 billion budget.
-            No jargon. No spin. Just public data, explained for parents.
+            A clear, data-driven look at SFUSD&apos;s $1.2 billion budget, explained for parents.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#deficit" className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
