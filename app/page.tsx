@@ -314,9 +314,9 @@ export default function Home() {
           <div className="bg-blue-50 rounded-2xl p-6">
             <h4 className="font-bold text-blue-900 mb-3">What the union says</h4>
             <ul className="text-sm text-blue-800 space-y-2">
-              <li>• Starting salary: ~$69,000 (hard to live in SF)</li>
+              <li>• Starting salary: ~$79,000 (hard to live in SF)</li>
               <li>• SF median 1BR rent: $3,200/mo ($38,400/yr)</li>
-              <li>• That&apos;s 56% of a starting teacher&apos;s pre-tax income on rent alone</li>
+              <li>• That&apos;s 49% of a starting teacher&apos;s pre-tax income on rent alone</li>
               <li>• District offered 6% over 3 years — they want more</li>
               <li>• District also wants them to give up prep periods and sabbaticals</li>
             </ul>
