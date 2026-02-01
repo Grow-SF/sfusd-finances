@@ -219,7 +219,7 @@ export default function Home() {
                   <Bar dataKey="budget" fill="#e0e7ff" name="Adopted Budget" radius={[6, 6, 0, 0]}
                     label={({ x, y, width, index }: any) => {
                       const d = adoptedBudgets[index]
-                      if (!d) return null
+                      if (!d) return <></>
                       return (
                         <text x={x + width / 2} y={y - 6} textAnchor="middle" fontSize={11} fontWeight={700}
                           fill={d.deficit === 0 ? '#059669' : '#dc2626'}>
