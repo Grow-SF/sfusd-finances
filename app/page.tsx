@@ -435,11 +435,16 @@ export default function Home() {
           </ChartCard>
 
           <Callout variant="insight">
-            <strong>Why is enrollment declining?</strong> This is primarily driven by <strong>demographic changes</strong> —
-            lower birth rates and families leaving San Francisco — affecting all California school districts, not just SFUSD.
-            Private schools (29-34% of SF students) and charter schools (4-8%) are also factors, with one in seven 5th graders
-            leaving before 6th grade. In 1967, SFUSD had 93,000 students — nearly double today.
-            Regardless of the cause, the budget impact is the same: fewer students means less state funding.
+            <strong>Why is enrollment declining?</strong> Multiple factors are at play. The biggest driver
+            is <strong>demographic change</strong>: births in San Francisco fell 21% between 2015 and 2021,
+            and the city&apos;s high housing costs push families out. This is part of a nationwide trend.
+            U.S. fertility rates are well below replacement level and public school enrollment is falling
+            across the country (<a href="https://www.brookings.edu/articles/declining-public-school-enrollment/" target="_blank" rel="noopener noreferrer" className="underline">Brookings, Aug 2025</a>).
+            The pandemic accelerated the decline: SF was among the last major cities to reopen public schools
+            while private schools reopened earlier, driving a 2,600-student loss in a single year. Private schools
+            serve 29-34% of SF students, though private enrollment is also declining (-3.4% since 2019).
+            SFUSD projects losing another 4,600 students by 2032. Regardless of cause, the budget math is the
+            same: fewer students = less state funding.
           </Callout>
         </Section>
 
