@@ -1,8 +1,8 @@
 'use client'
 
-import { budgetData, revenueVsSpending, adoptedBudgets, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
+import { budgetData, adoptedBudgets, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
 import {
-  AreaChart, Area, BarChart, Bar, ComposedChart, Line,
+  BarChart, Bar, ComposedChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts'
 
@@ -201,31 +201,38 @@ export default function Home() {
 
           <div className="space-y-4">
             <ChartCard
-              title="Revenue vs. Spending (Adopted Budgets)"
-              subtitle="The gap between the lines is the deficit. It closes only after $114M in cuts."
+              title="Adopted Budget &amp; Projected Deficit"
+              subtitle="Source: SFUSD Board of Education press releases and resolutions."
             >
               <ResponsiveContainer width="100%" height={320}>
-                <ComposedChart data={revenueVsSpending} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="spendGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#ef4444" stopOpacity={0.15} />
-                      <stop offset="100%" stopColor="#ef4444" stopOpacity={0.02} />
-                    </linearGradient>
-                  </defs>
+                <BarChart data={adoptedBudgets} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
                   <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
-                    tickFormatter={(v: any) => `$${v / 1000}B`} domain={[900, 1400]} />
+                    tickFormatter={(v: any) => `$${(v / 1000).toFixed(1)}B`} domain={[0, 1500]} />
                   <Tooltip {...tooltipStyle}
-                    formatter={((v: any) => [`$${Number(v).toLocaleString()}M`, '']) as any}
+                    formatter={((value: any, name: any) => [
+                      name === 'Adopted Budget' ? `$${(Number(value) / 1000).toFixed(2)}B` : (Number(value) === 0 ? 'Balanced' : `-$${Number(value)}M`),
+                      name
+                    ]) as any}
                     labelFormatter={((l: any) => `FY ${l}`) as any} />
-                  <Area type="monotone" dataKey="spending" fill="url(#spendGrad)" stroke="#ef4444" strokeWidth={2} name="Spending (Adopted Budget)" dot={false} />
-                  <Line type="monotone" dataKey="revenue" stroke="#2563eb" strokeWidth={2.5} dot={{ r: 4, fill: '#2563eb' }} name="Revenue (Budget − Deficit)" />
-                </ComposedChart>
+                  <Bar dataKey="budget" fill="#e0e7ff" name="Adopted Budget" radius={[6, 6, 0, 0]}
+                    label={({ x, y, width, index }: any) => {
+                      const d = adoptedBudgets[index]
+                      if (!d) return null
+                      return (
+                        <text x={x + width / 2} y={y - 6} textAnchor="middle" fontSize={11} fontWeight={700}
+                          fill={d.deficit === 0 ? '#059669' : '#dc2626'}>
+                          {d.deficit === 0 ? '✓ Balanced' : `-$${d.deficit}M`}
+                        </text>
+                      )
+                    }}
+                  />
+                </BarChart>
               </ResponsiveContainer>
               <p className="text-[11px] text-gray-400 px-2 pb-2">
-                Source: SFUSD Board-adopted budgets and press releases. Spending = adopted budget totals. Revenue = budget minus projected deficit from Board resolutions.
-                These are planned figures, not audited actuals.
+                Budget totals from SFUSD Board-adopted budgets (planned spending, not audited actuals).
+                Deficit amounts from Board resolutions and interim financial reports.
               </p>
             </ChartCard>
 
