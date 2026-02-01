@@ -10,8 +10,19 @@ export const budgetData = [
   { year: '2025-26', totalBudget: 1200, lcff: 648, peef: 94, parcelTax: null, enrollment: 48000, deficit: 0, esser: 0, cuts: 113.8 },
 ]
 
+// Revenue vs Spending — from SFUSD Board-adopted budgets and press releases.
+// Note: These are adopted (planned) budget figures, not audited actuals.
+// Revenue = budget total minus projected deficit. Spending = adopted budget total.
+export const revenueVsSpending = [
+  { year: '2020-21', revenue: 1016, spending: 1100, label: 'COVID year — fed relief masks gap' },
+  { year: '2021-22', revenue: 1060, spending: 1160, label: '$140M ESSER funds offset deficit' },
+  { year: '2022-23', revenue: 975, spending: 1100, label: '$125M structural deficit' },
+  { year: '2023-24', revenue: 1177, spending: 1280, label: 'LCFF jumps 12.9%, spending rises too' },
+  { year: '2024-25', revenue: 1248, spending: 1300, label: 'CDE certification → "Negative"' },
+  { year: '2025-26', revenue: 1200, spending: 1200, label: 'Balanced budget ($114M in cuts)' },
+]
+
 // Adopted budget totals from SFUSD Board press releases + deficit amounts from Board resolutions
-// Note: These are adopted (planned) budgets, not audited actuals.
 export const adoptedBudgets = [
   { year: '2020-21', budget: 1100, deficit: 84, source: 'SFUSD Board adopted budget' },
   { year: '2021-22', budget: 1160, deficit: 100, source: 'SFUSD Board adopted budget' },

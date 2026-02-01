@@ -1,6 +1,6 @@
 'use client'
 
-import { budgetData, adoptedBudgets, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
+import { budgetData, revenueVsSpending, adoptedBudgets, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
 import {
   AreaChart, Area, BarChart, Bar, ComposedChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
@@ -201,30 +201,31 @@ export default function Home() {
 
           <div className="space-y-4">
             <ChartCard
-              title="Adopted Budget &amp; Projected Deficit by Year"
-              subtitle="Source: SFUSD Board-adopted budgets. Deficit amounts from Board resolutions and interim reports."
+              title="Revenue vs. Spending (Adopted Budgets)"
+              subtitle="The gap between the lines is the deficit. It closes only after $114M in cuts."
             >
               <ResponsiveContainer width="100%" height={320}>
-                <ComposedChart data={adoptedBudgets} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+                <ComposedChart data={revenueVsSpending} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="spendGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#ef4444" stopOpacity={0.15} />
+                      <stop offset="100%" stopColor="#ef4444" stopOpacity={0.02} />
+                    </linearGradient>
+                  </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
                   <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
-                  <YAxis yAxisId="left" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
-                    tickFormatter={(v: any) => `$${(v / 1000).toFixed(1)}B`} domain={[900, 1400]} />
-                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
-                    tickFormatter={(v: any) => `$${v}M`} domain={[0, 150]} />
+                  <YAxis tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
+                    tickFormatter={(v: any) => `$${v / 1000}B`} domain={[900, 1400]} />
                   <Tooltip {...tooltipStyle}
-                    formatter={((value: any, name: any) => [
-                      name === 'Adopted Budget' ? `$${(Number(value) / 1000).toFixed(2)}B` : `$${Number(value)}M`,
-                      name
-                    ]) as any}
+                    formatter={((v: any) => [`$${Number(v).toLocaleString()}M`, '']) as any}
                     labelFormatter={((l: any) => `FY ${l}`) as any} />
-                  <Bar yAxisId="left" dataKey="budget" fill="#e0e7ff" name="Adopted Budget" radius={[4, 4, 0, 0]} />
-                  <Line yAxisId="right" type="monotone" dataKey="deficit" stroke="#ef4444" strokeWidth={2.5}
-                    dot={{ r: 5, fill: '#ef4444', stroke: '#fff', strokeWidth: 2 }} name="Projected Deficit" />
+                  <Area type="monotone" dataKey="spending" fill="url(#spendGrad)" stroke="#ef4444" strokeWidth={2} name="Spending (Adopted Budget)" dot={false} />
+                  <Line type="monotone" dataKey="revenue" stroke="#2563eb" strokeWidth={2.5} dot={{ r: 4, fill: '#2563eb' }} name="Revenue (Budget − Deficit)" />
                 </ComposedChart>
               </ResponsiveContainer>
               <p className="text-[11px] text-gray-400 px-2 pb-2">
-                Note: Budget figures are Board-adopted totals (planned spending), not audited actuals. Deficit amounts are projected shortfalls identified in Board resolutions and interim financial reports.
+                Source: SFUSD Board-adopted budgets and press releases. Spending = adopted budget totals. Revenue = budget minus projected deficit from Board resolutions.
+                These are planned figures, not audited actuals.
               </p>
             </ChartCard>
 
