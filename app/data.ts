@@ -96,4 +96,5 @@ export const sources = [
   { label: 'Budget FAQ (2025-26)', url: 'https://www.sfusd.edu/about-sfusd/budget-and-lcap/budget-faqs/budget-faqs-budget-development-2025-26' },
   { label: 'Dec 2025 Fiscal Milestone', url: 'https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2025-12-05-sfusd-reaches-major-milestone-restore-local-control' },
   { label: 'KQED: Teachers Union Strike', url: 'https://www.kqed.org/news/12071181/san-francisco-teachers-union-moves-closer-to-a-historic-strike-first-in-more-than-50-years' },
+  { label: 'SFEDup: SFUSD\'s Biggest Liability (OPEB Analysis)', url: 'https://sfeducation.substack.com/p/sfusds-biggest-liability' },
 ]

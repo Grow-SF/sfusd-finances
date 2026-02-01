@@ -269,25 +269,24 @@ export default function Home() {
             description="About 60¢ reaches classrooms. The rest goes to benefits, admin, and facilities."
           />
 
-          <Card className="p-6">
-            <div className="space-y-4">
+          <Card className="p-6 sm:p-8">
+            <div className="space-y-5">
               {dollarBreakdown.map((item) => (
-                <div key={item.category} className="flex items-center gap-4">
-                  <div className="w-32 sm:w-40 shrink-0">
-                    <p className="text-sm font-medium text-gray-900">{item.category}</p>
-                    <p className="text-[11px] text-gray-400 hidden sm:block">{item.description}</p>
-                  </div>
-                  <div className="flex-1">
-                    <div className="bg-gray-100 rounded-full h-6 overflow-hidden">
-                      <div
-                        className="h-full rounded-full flex items-center justify-end pr-2 transition-all"
-                        style={{ width: `${Math.max(item.amount * 100, 4)}%`, backgroundColor: item.color }}
-                      >
-                        <span className="text-[11px] font-bold text-white drop-shadow-sm">
-                          {(item.amount * 100).toFixed(0)}¢
-                        </span>
-                      </div>
+                <div key={item.category}>
+                  <div className="flex items-baseline justify-between mb-1.5">
+                    <div>
+                      <span className="text-sm font-semibold text-gray-900">{item.category}</span>
+                      <span className="text-xs text-gray-400 ml-2">{item.description}</span>
                     </div>
+                    <span className="text-lg font-bold tabular-nums" style={{ color: item.color }}>
+                      {(item.amount * 100).toFixed(0)}¢
+                    </span>
+                  </div>
+                  <div className="bg-gray-100 rounded-full h-4 overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{ width: `${Math.max(item.amount * 100, 3)}%`, backgroundColor: item.color }}
+                    />
                   </div>
                 </div>
               ))}
@@ -299,6 +298,57 @@ export default function Home() {
             retirement contributions set by the state. Districts have no say in these rates.
             They&apos;ve been rising for a decade.
           </Callout>
+
+          {/* OPEB Section */}
+          <Card className="p-6 mt-4 border-amber-200/60 bg-amber-50/30">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-lg">⚠️</span>
+              <div>
+                <h3 className="text-sm font-bold text-gray-900">The hidden cost: lifetime retiree healthcare</h3>
+                <p className="text-xs text-gray-500 mt-0.5">SFUSD is one of the few districts in California that offers this</p>
+              </div>
+            </div>
+            <div className="text-sm text-gray-700 space-y-3 leading-relaxed">
+              <p>
+                Most school districts offer pensions. SFUSD goes further — it provides <strong>medical benefits
+                to retirees for life</strong>. Only a fraction of California districts offer any retiree healthcare;
+                most that do terminate it at a certain age. San Francisco is one of the few with lifetime coverage.
+              </p>
+              <p>
+                For decades, the district promised this benefit without setting money aside to pay for it.
+                The result: an <strong>unfunded liability of $649 million</strong> as of June 2024 (down from $1.04 billion in 2022,
+                largely due to accounting rate changes). This is <em>larger</em> than SFUSD&apos;s unfunded pension liability.
+              </p>
+              <p>
+                Today, the district pays ~<strong>$34 million/year</strong> in healthcare premiums for current retirees,
+                plus recently started setting aside money into a trust fund (~$50M in FY 2023-24). That&apos;s
+                roughly <strong>$84 million per year</strong> going to retiree obligations — money that isn&apos;t reaching
+                current students.
+              </p>
+              <p className="text-xs text-gray-500 italic">
+                As one analyst put it: &quot;Yesterday&apos;s students didn&apos;t set aside enough money to pay for their
+                teachers&apos; retirement healthcare, so today&apos;s students have to pay for both today&apos;s teachers
+                and yesterday&apos;s.&quot; This will continue for decades until the liability is fully funded.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 mt-4">
+              <div className="bg-white rounded-xl p-3 text-center">
+                <p className="text-xl font-bold text-amber-700">$649M</p>
+                <p className="text-[11px] text-gray-500">Unfunded liability</p>
+              </div>
+              <div className="bg-white rounded-xl p-3 text-center">
+                <p className="text-xl font-bold text-amber-700">$84M</p>
+                <p className="text-[11px] text-gray-500">Annual cost</p>
+              </div>
+              <div className="bg-white rounded-xl p-3 text-center">
+                <p className="text-xl font-bold text-amber-700">~7%</p>
+                <p className="text-[11px] text-gray-500">Of total budget</p>
+              </div>
+            </div>
+            <p className="text-[11px] text-gray-400 mt-3">
+              Source: <a href="https://sfeducation.substack.com/p/sfusds-biggest-liability" target="_blank" rel="noopener noreferrer" className="underline">SFEDup analysis of SFUSD 2023-24 Audited Financial Report</a>
+            </p>
+          </Card>
         </Section>
 
         {/* COVID Cliff */}
@@ -369,7 +419,7 @@ export default function Home() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
                 <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="left" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
-                  tickFormatter={(v: any) => `${(v/1000).toFixed(0)}K`} domain={[44000, 55000]} />
+                  tickFormatter={(v: any) => `${(v/1000).toFixed(0)}K`} domain={[0, 60000]} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
                   tickFormatter={(v: any) => `$${(v/1000).toFixed(0)}K`} />
                 <Tooltip {...tooltipStyle}
@@ -385,8 +435,11 @@ export default function Home() {
           </ChartCard>
 
           <Callout variant="insight">
-            <strong>Where are students going?</strong> Private schools serve 29-34% of SF students.
-            One in seven 5th graders leaves before 6th grade. In 1967, SFUSD had 93,000 students — nearly double today.
+            <strong>Why is enrollment declining?</strong> This is primarily driven by <strong>demographic changes</strong> —
+            lower birth rates and families leaving San Francisco — affecting all California school districts, not just SFUSD.
+            Private schools (29-34% of SF students) and charter schools (4-8%) are also factors, with one in seven 5th graders
+            leaving before 6th grade. In 1967, SFUSD had 93,000 students — nearly double today.
+            Regardless of the cause, the budget impact is the same: fewer students means less state funding.
           </Callout>
         </Section>
 
