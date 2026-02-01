@@ -10,13 +10,15 @@ export const budgetData = [
   { year: '2025-26', totalBudget: 1200, lcff: 648, peef: 94, parcelTax: null, enrollment: 48000, deficit: 0, esser: 0, cuts: 113.8 },
 ]
 
-export const revenueVsSpending = [
-  { year: '2020-21', revenue: 1016, spending: 1100, label: 'COVID year — fed relief masks gap' },
-  { year: '2021-22', revenue: 1060, spending: 1160, label: '$140M ESSER funds offset deficit' },
-  { year: '2022-23', revenue: 1025, spending: 1100, label: '$125M structural deficit' },
-  { year: '2023-24', revenue: 1177, spending: 1280, label: 'LCFF jumps 12.9%, spending rises too' },
-  { year: '2024-25', revenue: 1249, spending: 1300, label: 'CDE certification → "Negative"' },
-  { year: '2025-26', revenue: 1200, spending: 1200, label: 'First balanced budget ($114M in cuts)' },
+// Adopted budget totals from SFUSD Board press releases + deficit amounts from Board resolutions
+// Note: These are adopted (planned) budgets, not audited actuals.
+export const adoptedBudgets = [
+  { year: '2020-21', budget: 1100, deficit: 84, source: 'SFUSD Board adopted budget' },
+  { year: '2021-22', budget: 1160, deficit: 100, source: 'SFUSD Board adopted budget' },
+  { year: '2022-23', budget: 1100, deficit: 125, source: 'SFUSD Board press release, June 2022' },
+  { year: '2023-24', budget: 1280, deficit: 103, source: 'SFUSD Board press release, June 2023' },
+  { year: '2024-25', budget: 1300, deficit: 52, source: 'SFUSD Board press release, June 2024' },
+  { year: '2025-26', budget: 1200, deficit: 0, source: 'SFUSD Board press release, June 2025' },
 ]
 
 export const enrollmentData = [
@@ -97,4 +99,6 @@ export const sources = [
   { label: 'Dec 2025 Fiscal Milestone', url: 'https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2025-12-05-sfusd-reaches-major-milestone-restore-local-control' },
   { label: 'KQED: Teachers Union Strike', url: 'https://www.kqed.org/news/12071181/san-francisco-teachers-union-moves-closer-to-a-historic-strike-first-in-more-than-50-years' },
   { label: 'SFEDup: SFUSD\'s Biggest Liability (OPEB Analysis)', url: 'https://sfeducation.substack.com/p/sfusds-biggest-liability' },
+  { label: 'CDE Current Expense of Education (Audited Expenditures)', url: 'https://www.cde.ca.gov/ds/fd/ec/currentexpense.asp' },
+  { label: 'Brookings: Declining Public School Enrollment (Aug 2025)', url: 'https://www.brookings.edu/articles/declining-public-school-enrollment/' },
 ]

@@ -1,6 +1,6 @@
 'use client'
 
-import { budgetData, revenueVsSpending, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
+import { budgetData, adoptedBudgets, enrollmentData, dollarBreakdown, esserFunding, deficitTimeline, sources } from './data'
 import {
   AreaChart, Area, BarChart, Bar, ComposedChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
@@ -195,40 +195,44 @@ export default function Home() {
         <Section id="deficit" className="pb-16">
           <SectionHeader
             eyebrow="The core question"
-            title="Is there actually a deficit?"
-            description="Yes — it's structural. SFUSD spent more than it earned every year from 2020 to 2025. Federal COVID money masked the problem. Now that money is gone."
+            title="Was there a deficit? Is there still one?"
+            description="From 2020 to 2025, SFUSD's ongoing spending exceeded its recurring revenue every year. Federal COVID money masked the gap. In 2025-26, the district cut $114M to balance the budget for the first time — but $59M more in cuts are needed for 2026-27."
           />
 
           <div className="space-y-4">
             <ChartCard
-              title="Revenue vs. Spending"
-              subtitle="The gap between the lines is the deficit. It closes only after $114M in cuts."
+              title="Adopted Budget &amp; Projected Deficit by Year"
+              subtitle="Source: SFUSD Board-adopted budgets. Deficit amounts from Board resolutions and interim reports."
             >
               <ResponsiveContainer width="100%" height={320}>
-                <ComposedChart data={revenueVsSpending} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="spendGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#ef4444" stopOpacity={0.15} />
-                      <stop offset="100%" stopColor="#ef4444" stopOpacity={0.02} />
-                    </linearGradient>
-                  </defs>
+                <ComposedChart data={adoptedBudgets} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
                   <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
-                    tickFormatter={(v: any) => `$${v / 1000}B`} domain={[900, 1400]} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
+                    tickFormatter={(v: any) => `$${(v / 1000).toFixed(1)}B`} domain={[900, 1400]} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12, fill: '#9ca3af' }} axisLine={false} tickLine={false}
+                    tickFormatter={(v: any) => `$${v}M`} domain={[0, 150]} />
                   <Tooltip {...tooltipStyle}
-                    formatter={((v: any) => [`$${Number(v).toLocaleString()}M`, '']) as any}
+                    formatter={((value: any, name: any) => [
+                      name === 'Adopted Budget' ? `$${(Number(value) / 1000).toFixed(2)}B` : `$${Number(value)}M`,
+                      name
+                    ]) as any}
                     labelFormatter={((l: any) => `FY ${l}`) as any} />
-                  <Area type="monotone" dataKey="spending" fill="url(#spendGrad)" stroke="#ef4444" strokeWidth={2} name="Spending" dot={false} />
-                  <Line type="monotone" dataKey="revenue" stroke="#2563eb" strokeWidth={2.5} dot={{ r: 4, fill: '#2563eb' }} name="Revenue" />
+                  <Bar yAxisId="left" dataKey="budget" fill="#e0e7ff" name="Adopted Budget" radius={[4, 4, 0, 0]} />
+                  <Line yAxisId="right" type="monotone" dataKey="deficit" stroke="#ef4444" strokeWidth={2.5}
+                    dot={{ r: 5, fill: '#ef4444', stroke: '#fff', strokeWidth: 2 }} name="Projected Deficit" />
                 </ComposedChart>
               </ResponsiveContainer>
+              <p className="text-[11px] text-gray-400 px-2 pb-2">
+                Note: Budget figures are Board-adopted totals (planned spending), not audited actuals. Deficit amounts are projected shortfalls identified in Board resolutions and interim financial reports.
+              </p>
             </ChartCard>
 
             <Callout variant="info">
               <strong>What &quot;structural deficit&quot; means:</strong> Imagine earning $5,000/month but spending $5,500.
               You cover the gap with savings — until you can&apos;t. SFUSD&apos;s &quot;savings&quot; was $330M+ in COVID relief.
-              Now it&apos;s gone.
+              Now it&apos;s gone. The 2025-26 budget is balanced only because the district cut $114M in spending.
+              Another $59M in cuts are planned for 2026-27 to end deficit spending permanently.
             </Callout>
 
             <Card className="p-6">
@@ -249,7 +253,7 @@ export default function Home() {
                           />
                         </div>
                         <span className={`text-xs font-semibold w-20 text-right ${d.deficit === 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                          {d.deficit === 0 ? 'Balanced' : `$${d.deficit}M`}
+                          {d.deficit === 0 ? 'Balanced*' : `$${d.deficit}M`}
                         </span>
                       </div>
                       <p className="text-[11px] text-gray-400 mt-0.5">{d.action}</p>
@@ -257,6 +261,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <p className="text-[11px] text-gray-400 mt-3">*Balanced after $114M in cuts. An additional $59M in reductions is planned for 2026-27.</p>
             </Card>
           </div>
         </Section>
@@ -266,7 +271,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Following the money"
             title="For every $1 SFUSD spends"
-            description="About 60¢ reaches classrooms. The rest goes to benefits, admin, and facilities."
+            description="About 80¢ goes to staff compensation (salaries + benefits). Here's the approximate breakdown."
           />
 
           <Card className="p-6 sm:p-8">
