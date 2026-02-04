@@ -196,13 +196,13 @@ export default function Home() {
           <SectionHeader
             eyebrow="The core question"
             title="Was there a deficit? Is there still one?"
-            description="From 2020 to 2025, SFUSD's ongoing spending exceeded its recurring revenue every year. Federal COVID money masked the gap. In 2025-26, the district cut $114M to balance the budget for the first time — but $59M more in cuts are needed for 2026-27."
+            description="From 2020 to 2025, SFUSD's ongoing spending exceeded its recurring revenue every year. The structural deficit peaked at $240M in 2021-22, masked by $140M in federal ESSER funds. In 2025-26, the district cut $114M and used $225M in reserves to 'balance' the budget — but a $99M structural gap remains."
           />
 
           <div className="space-y-4">
             <ChartCard
-              title="Adopted Budget &amp; Projected Deficit"
-              subtitle="Source: SFUSD Board of Education press releases and resolutions."
+              title="Adopted Budget &amp; Structural Deficit"
+              subtitle="Structural deficit = ongoing expenses minus ongoing revenues (excludes one-time funds like ESSER)."
             >
               <ResponsiveContainer width="100%" height={320}>
                 <BarChart data={adoptedBudgets} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>
@@ -222,8 +222,8 @@ export default function Home() {
                       if (!d) return <></>
                       return (
                         <text x={x + width / 2} y={y - 6} textAnchor="middle" fontSize={11} fontWeight={700}
-                          fill={d.deficit === 0 ? '#059669' : '#dc2626'}>
-                          {d.deficit === 0 ? '✓ Balanced' : `-$${d.deficit}M`}
+                          fill={d.structuralDeficit === 0 ? '#059669' : '#dc2626'}>
+                          {d.structuralDeficit === 0 ? '✓ Balanced' : `-$${d.structuralDeficit}M`}
                         </text>
                       )
                     }}
@@ -255,13 +255,13 @@ export default function Home() {
                           <div
                             className="h-full rounded-full transition-all"
                             style={{
-                              width: `${Math.max((d.deficit / 130) * 100, 2)}%`,
-                              backgroundColor: d.deficit === 0 ? '#10b981' : '#ef4444',
+                              width: `${Math.max((d.structuralDeficit / 260) * 100, 2)}%`,
+                              backgroundColor: d.structuralDeficit === 0 ? '#10b981' : '#ef4444',
                             }}
                           />
                         </div>
-                        <span className={`text-xs font-semibold w-20 text-right ${d.deficit === 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                          {d.deficit === 0 ? 'Balanced*' : `$${d.deficit}M`}
+                        <span className={`text-xs font-semibold w-20 text-right ${d.structuralDeficit === 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                          {d.structuralDeficit === 0 ? 'Balanced*' : `$${d.structuralDeficit}M`}
                         </span>
                       </div>
                       <p className="text-[11px] text-gray-400 mt-0.5">{d.action}</p>
@@ -269,7 +269,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] text-gray-400 mt-3">*Balanced after $114M in cuts. An additional $59M in reductions is planned for 2026-27.</p>
+              <p className="text-[11px] text-gray-400 mt-3">*Structural deficit (ongoing expenses excluding one-time funds). Balanced after $114M in cuts. An additional $59M in reductions is planned for 2026-27.</p>
             </Card>
           </div>
         </Section>

@@ -1,5 +1,11 @@
 // SFUSD Financial Data — All figures from official SFUSD budget documents
 // Sources cited inline. All dollar amounts in millions unless noted.
+//
+// Deficit Definitions:
+// - structuralDeficit: Ongoing revenues minus ongoing expenses (excludes ALL one-time funds)
+// - deficitAfterOneTime: Deficit remaining after applying one-time funds (adopted/final)
+// - oneTimeFunds: Total one-time revenue sources (ESSER, state relief, reserve drawdowns)
+// - oneTimeReserves: Reserve drawdowns specifically (subset of oneTimeFunds)
 
 export const budgetData = [
   {
@@ -9,7 +15,10 @@ export const budgetData = [
     peef: null,
     parcelTax: null,
     enrollment: 51800,
-    deficit: 84,
+    structuralDeficit: 153,
+    deficitAfterOneTime: 84,
+    oneTimeFunds: 69,
+    oneTimeReserves: 24,
     esser: 0,
   },
   {
@@ -19,7 +28,10 @@ export const budgetData = [
     peef: 75.8,
     parcelTax: 93.5,
     enrollment: 49200,
-    deficit: 100.2,
+    structuralDeficit: 240,
+    deficitAfterOneTime: 100,
+    oneTimeFunds: 140,
+    oneTimeReserves: 0,
     esser: 140,
   },
   {
@@ -29,7 +41,10 @@ export const budgetData = [
     peef: 88.9,
     parcelTax: 94.9,
     enrollment: 48785,
-    deficit: 125,
+    structuralDeficit: 225,
+    deficitAfterOneTime: 0,
+    oneTimeFunds: 176,
+    oneTimeReserves: 0,
     esser: 100,
   },
   {
@@ -39,7 +54,10 @@ export const budgetData = [
     peef: 90.3,
     parcelTax: 101.1,
     enrollment: 49000,
-    deficit: 103,
+    structuralDeficit: 103, // HOLD - needs verification
+    deficitAfterOneTime: 103, // HOLD - needs verification
+    oneTimeFunds: 60,
+    oneTimeReserves: 0,
     esser: 60,
   },
   {
@@ -49,7 +67,10 @@ export const budgetData = [
     peef: 94.3,
     parcelTax: 104.3,
     enrollment: 48000,
-    deficit: 51.9,
+    structuralDeficit: 159,
+    deficitAfterOneTime: 52,
+    oneTimeFunds: 107,
+    oneTimeReserves: 97,
     esser: 10,
   },
   {
@@ -57,9 +78,12 @@ export const budgetData = [
     totalBudget: 1200,
     lcff: 648,
     peef: 94,
-    parcelTax: null,
+    parcelTax: 107.59,
     enrollment: 48000,
-    deficit: 0,
+    structuralDeficit: 99,
+    deficitAfterOneTime: 0,
+    oneTimeFunds: 225,
+    oneTimeReserves: 225,
     esser: 0,
     cuts: 113.8,
   },
@@ -108,41 +132,48 @@ export const revenueVsSpending = [
 ];
 
 // Adopted budget totals from SFUSD Board press releases + deficit amounts from Board resolutions
+// Note: deficitAfterOneTime represents the adopted/final deficit after applying one-time funds
 export const adoptedBudgets = [
   {
     year: "2020-21",
     budget: 1100,
-    deficit: 84,
+    deficitAfterOneTime: 84,
+    structuralDeficit: 153,
     source: "SFUSD Board adopted budget",
   },
   {
     year: "2021-22",
     budget: 1160,
-    deficit: 100,
+    deficitAfterOneTime: 100,
+    structuralDeficit: 240,
     source: "SFUSD Board adopted budget",
   },
   {
     year: "2022-23",
     budget: 1100,
-    deficit: 125,
+    deficitAfterOneTime: 0,
+    structuralDeficit: 225,
     source: "SFUSD Board press release, June 2022",
   },
   {
     year: "2023-24",
     budget: 1280,
-    deficit: 103,
+    deficitAfterOneTime: 103, // HOLD - needs verification
+    structuralDeficit: 103, // HOLD - needs verification
     source: "SFUSD Board press release, June 2023",
   },
   {
     year: "2024-25",
     budget: 1300,
-    deficit: 52,
+    deficitAfterOneTime: 52,
+    structuralDeficit: 159,
     source: "SFUSD Board press release, June 2024",
   },
   {
     year: "2025-26",
     budget: 1200,
-    deficit: 0,
+    deficitAfterOneTime: 0,
+    structuralDeficit: 99,
     source: "SFUSD Board press release, June 2025",
   },
 ];
@@ -221,33 +252,39 @@ export const esserFunding = [
 export const deficitTimeline = [
   {
     year: "2020-21",
-    deficit: 84,
-    action: "Projected deficit — Board passes resolution",
+    structuralDeficit: 153,
+    deficitAfterOneTime: 84,
+    action: "COVID year — $69M one-time state funds + reserves",
   },
   {
     year: "2021-22",
-    deficit: 100.2,
-    action: "ESSER funds ($140M) mask the problem",
+    structuralDeficit: 240,
+    deficitAfterOneTime: 100,
+    action: "ESSER funds ($140M) mask $240M structural gap",
   },
   {
     year: "2022-23",
-    deficit: 125,
-    action: "$49M cuts + $76M new revenue sources",
+    structuralDeficit: 225,
+    deficitAfterOneTime: 0,
+    action: "$49M cuts + $176M one-time funds (ESSER + state)",
   },
   {
     year: "2023-24",
-    deficit: 103,
+    structuralDeficit: 103, // HOLD - needs verification
+    deficitAfterOneTime: 103, // HOLD - needs verification
     action: "Board adopts $103M reduction plan",
   },
   {
     year: "2024-25",
-    deficit: 51.9,
+    structuralDeficit: 159,
+    deficitAfterOneTime: 52,
     action: 'CDE "Negative" certification, 535 positions cut',
   },
   {
     year: "2025-26",
-    deficit: 0,
-    action: "$113.8M in cuts → first balanced budget",
+    structuralDeficit: 99,
+    deficitAfterOneTime: 0,
+    action: "$113.8M cuts + $225M reserves → balanced",
   },
 ];
 
