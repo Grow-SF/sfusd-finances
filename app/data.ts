@@ -12,8 +12,8 @@ export const budgetData = [
     year: "2020-21",
     totalBudget: 1100,
     lcff: 531,
-    peef: null,
-    parcelTax: null,
+    peef: 76.7, // City Controller estimate, May 13, 2020 (Budget Overview Page 19)
+    parcelTax: 45.04, // QTEA only: $32.1M (UESF MOU) + $12.9M (non-MOU) (Budget Overview Page 20)
     enrollment: 51800,
     structuralDeficit: 153,
     deficitAfterOneTime: 84,
