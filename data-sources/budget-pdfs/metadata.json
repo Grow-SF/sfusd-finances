@@ -1,0 +1,56 @@
+{
+  "lastDownload": "2026-02-04T01:02:10.777Z",
+  "totalDocuments": 6,
+  "successful": 2,
+  "failed": 4,
+  "sources": [
+    {
+      "year": "2025-26",
+      "label": "FY 2025-26 Adopted Budget (SACS Forms)",
+      "url": "https://go.boarddocs.com/ca/sfusd/Board.nsf/files/DHU32S04CBAE/$file/2025-26%20District%20SACS%20%282nd%20Reading%29.pdf",
+      "localPath": "data-sources/budget-pdfs/fy-2025-26-adopted-budget-sacs.pdf",
+      "status": "success",
+      "size": 2358108
+    },
+    {
+      "year": "2024-25",
+      "label": "FY 2024-25 Adopted Budget (SACS Forms)",
+      "url": "https://go.boarddocs.com/ca/sfusd/Board.nsf/files/D6G3WA08D0A1/$file/FY%2024-25%20SFUSD%20Budget%20Adoption_2nd%20Reading%20SACS%20Forms%2006-25-2024.pdf",
+      "localPath": "data-sources/budget-pdfs/fy-2024-25-adopted-budget-sacs.pdf",
+      "status": "success",
+      "size": 1628109
+    },
+    {
+      "year": "2023-24",
+      "label": "FY 2023-24 Budget Overview Vol II",
+      "url": "https://drive.google.com/file/d/1n4sUMSo2Dk5EZnOs4e-Ra-BTt1Fmvjey/view?usp=drive_link",
+      "localPath": null,
+      "status": "failed",
+      "error": "Failed to download: 303 See Other"
+    },
+    {
+      "year": "2022-23",
+      "label": "FY 2022-23 Budget Overview Vol II",
+      "url": "https://drive.google.com/file/d/19nJ_elHeADi_nE81JYYmfHjxp168qRoG/view?usp=sharing",
+      "localPath": null,
+      "status": "failed",
+      "error": "Failed to download: 303 See Other"
+    },
+    {
+      "year": "2021-22",
+      "label": "FY 2021-22 Budget Overview Vol II",
+      "url": "https://drive.google.com/file/d/1fWe2vTZmBCZAonQpPEmQ4LUDvm4Rgxen/view?usp=sharing",
+      "localPath": null,
+      "status": "failed",
+      "error": "Failed to download: 303 See Other"
+    },
+    {
+      "year": "2020-21",
+      "label": "FY 2020-21 Budget Overview Vol II (Revised)",
+      "url": "https://drive.google.com/file/d/1jClc0vAnyKJzC_w_y8EMJZQ-tvwiOQkF/view",
+      "localPath": null,
+      "status": "failed",
+      "error": "Failed to download: 303 See Other"
+    }
+  ]
+}

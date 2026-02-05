@@ -1,0 +1,116 @@
+{
+  "lastDownload": "2026-02-04T00:53:04.936Z",
+  "totalSources": 12,
+  "successful": 12,
+  "failed": 0,
+  "sources": [
+    {
+      "label": "FY 2025-26 Adopted Budget",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2025-06-24-sf-board-education-adopts-budget-2025-26-school-year",
+      "localPath": "data-sources/press-releases/fy-2025-26-adopted-budget.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:44.658Z",
+      "size": 111149
+    },
+    {
+      "label": "FY 2024-25 Adopted Budget",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2024-06-27-sf-board-education-adopts-plan-and-budget-2024-25-school-year",
+      "localPath": "data-sources/press-releases/fy-2024-25-adopted-budget.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:46.831Z",
+      "size": 111092
+    },
+    {
+      "label": "FY 2023-24 Adopted Budget",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2023-06-22-sf-board-education-adopts-plan-and-budget-2023-24-school-year",
+      "localPath": "data-sources/press-releases/fy-2023-24-adopted-budget.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:48.796Z",
+      "size": 113038
+    },
+    {
+      "label": "FY 2022-23 Adopted Budget",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2022-06-29-sf-board-education-adopts-plan-and-budget-2022-23-school-year",
+      "localPath": "data-sources/press-releases/fy-2022-23-adopted-budget.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:50.649Z",
+      "size": 114470
+    },
+    {
+      "label": "FY 2021-22 Adopted Budget",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2021-06-23-sf-board-education-approves-budget-2021-22-school-year",
+      "localPath": "data-sources/press-releases/fy-2021-22-adopted-budget.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:51.386Z",
+      "size": 115122
+    },
+    {
+      "label": "FY 2024-25 First Interim Report",
+      "url": "https://go.boarddocs.com/ca/sfusd/Board.nsf/files/DBU7D7191213/$file/%5BUpdated-12.10.24-final%5DSFUSD-1st_Interim-24-25.pdf",
+      "localPath": "data-sources/reports/fy-2024-25-first-interim-report.pdf",
+      "contentType": "application/pdf",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:57.079Z",
+      "size": 2752289
+    },
+    {
+      "label": "Budget & LCAP Archives",
+      "url": "https://www.sfusd.edu/about-sfusd/budget-and-lcap/budget-and-lcaps-previous-fiscal-years",
+      "localPath": "data-sources/archives/budget-lcap-archives.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:52:59.230Z",
+      "size": 136790
+    },
+    {
+      "label": "Budget FAQ (2025-26)",
+      "url": "https://www.sfusd.edu/about-sfusd/budget-and-lcap/budget-faqs/budget-faqs-budget-development-2025-26",
+      "localPath": "data-sources/archives/budget-faq-2025-26.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:53:00.062Z",
+      "size": 152826
+    },
+    {
+      "label": "Dec 2025 Fiscal Milestone",
+      "url": "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2025-12-05-sfusd-reaches-major-milestone-restore-local-control",
+      "localPath": "data-sources/press-releases/dec-2025-fiscal-milestone.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:53:02.090Z",
+      "size": 111197
+    },
+    {
+      "label": "KQED: Teachers Union Strike",
+      "url": "https://www.kqed.org/news/12071181/san-francisco-teachers-union-moves-closer-to-a-historic-strike-first-in-more-than-50-years",
+      "localPath": "data-sources/news/kqed-teachers-union-strike.html",
+      "contentType": "text/html; charset=utf-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:53:02.751Z",
+      "size": 218262
+    },
+    {
+      "label": "CDE Current Expense of Education (Audited Expenditures)",
+      "url": "https://www.cde.ca.gov/ds/fd/ec/currentexpense.asp",
+      "localPath": "data-sources/archives/cde-current-expense-of-education-audited-expenditures.html",
+      "contentType": "text/html",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:53:03.822Z",
+      "size": 46709
+    },
+    {
+      "label": "Brookings: Declining Public School Enrollment (Aug 2025)",
+      "url": "https://www.brookings.edu/articles/declining-public-school-enrollment/",
+      "localPath": "data-sources/news/brookings-declining-public-school-enrollment-aug-2025.html",
+      "contentType": "text/html; charset=UTF-8",
+      "status": "success",
+      "downloadedAt": "2026-02-04T00:53:04.435Z",
+      "size": 278526
+    }
+  ]
+}
