@@ -288,6 +288,53 @@ export const deficitTimeline = [
   },
 ];
 
+// Interim Reports — Mid-year budget revisions showing actual vs. adopted projections
+// These reports are issued twice per year (First Interim ~December, Second Interim ~March)
+// and show how actual revenues/expenditures are tracking against the adopted budget.
+// Source: SFUSD Board presentations and SACS certifications
+export const interimReports = [
+  {
+    year: "2025-26",
+    reportType: "First Interim",
+    reportDate: "2024-12-09",
+    unrestricted: {
+      beginningBalance: 221.2,
+      revenues: 744.5,
+      expenditures: 796.0,
+      deficit: 51.5,
+      endingBalance: 169.7,
+    },
+    restricted: {
+      beginningBalance: 207.7,
+      revenues: 547.1,
+      expenditures: 597.9,
+      deficit: 50.8,
+      endingBalance: 156.9,
+    },
+    combined: {
+      revenues: 1291.6,
+      expenditures: 1393.9,
+      deficit: 102.3,
+    },
+    certification: "Qualified",
+    multiYearProjections: [
+      { year: "2025-26", deficit: 51.5 },
+      { year: "2026-27", deficit: 32.0 },
+      { year: "2027-28", deficit: 19.0 },
+    ],
+    comparisonToAdopted: {
+      adoptedBudget: 1200,
+      revisedBudget: 1291.6,
+      adoptedDeficit: 0,
+      revisedDeficit: 102.3,
+      variance: 102.3,
+    },
+    source: "First Interim Report, December 9, 2024",
+    notes:
+      "Budget increased from $1,200M adopted to $1,291.6M at 1st Interim. Certification downgraded from balanced to Qualified. Combined deficit of $102.3M ($51.5M unrestricted + $50.8M restricted).",
+  },
+];
+
 export const teacherPay = {
   sfusdStarting: 69000,
   sfusdTop: 110000,
@@ -334,6 +381,10 @@ export const sources = [
   {
     label: "FY 2021-22 Adopted Budget",
     url: "https://www.sfusd.edu/about-sfusd/sfusd-news/press-releases/2021-06-23-sf-board-education-approves-budget-2021-22-school-year",
+  },
+  {
+    label: "FY 2025-26 First Interim Report",
+    url: "https://go.boarddocs.com/ca/sfusd/Board.nsf/files/DP2V8U7F8998/$file/2026-12-09%201st%20Interim%20Report%20Presentation.pdf",
   },
   {
     label: "FY 2024-25 First Interim Report",

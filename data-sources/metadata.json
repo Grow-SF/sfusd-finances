@@ -1,7 +1,7 @@
 {
-  "lastDownload": "2026-02-04T00:53:04.936Z",
-  "totalSources": 12,
-  "successful": 12,
+  "lastDownload": "2026-02-06T16:23:00.000Z",
+  "totalSources": 13,
+  "successful": 13,
   "failed": 0,
   "sources": [
     {
@@ -48,6 +48,15 @@
       "status": "success",
       "downloadedAt": "2026-02-04T00:52:51.386Z",
       "size": 115122
+    },
+    {
+      "label": "FY 2025-26 First Interim Report",
+      "url": "https://go.boarddocs.com/ca/sfusd/Board.nsf/files/DP2V8U7F8998/$file/2026-12-09%201st%20Interim%20Report%20Presentation.pdf",
+      "localPath": "data-sources/reports/2026-12-09-first-interim-report-presentation.pdf",
+      "contentType": "application/pdf",
+      "status": "success",
+      "downloadedAt": "2026-02-06T16:23:00.000Z",
+      "size": 789278
     },
     {
       "label": "FY 2024-25 First Interim Report",
